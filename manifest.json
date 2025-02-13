@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Duolingo Mistakes Tracker",
+  "version": "1.0",
+  "description": "Track, review, and practice Duolingo mistakes with a built-in spaced repetition system.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.duolingo.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+        "matches": ["https://www.duolingo.com/*"],
+        "js": ["content.js"]
+    }
+],
+  "web_accessible_resources": [
+    {
+      "resources": ["icon.jpg"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "options_page": "options.html"
+}
+
+  
